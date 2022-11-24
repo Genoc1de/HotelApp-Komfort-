@@ -60,13 +60,11 @@
   </div>
 
 
-
-    <section class="search-container mb-5 pb-5" style="background:#f7f8f3">
-        <div class="container" style="margin-left:10%; margin-right:10%">
+<div class="container-fluid" style="display: flex;">
+    <section class="search-container" style="background:#f7f8f3; margin-left:6%;">
+        <div class="container" style="margin-left:10%; margin-right:5%">
             <div class="row">
-                    <div class="col-lg-4">
-                    <div class="row my-2">
-                    </div>
+                    <div class="col-lg-12">
                     <div class="row mt-2 justify-content-between">
                         <div class="filter-card">
                             <h5 style="color:#002c3e">Бронирование</h5>
@@ -109,16 +107,15 @@
                             </div>
                         </form>
                     </div>
-                    </div>
-                    <div>
-                <div>
-                </div>
-
-                    </div>
-                    </div>
-                                            {% for hotels_obj in hotels_objs %}
+                 </div>
+            </div>
+         </div>
+        </div>
+    </section>
+    <div class="container">
+         {% for hotels_obj in hotels_objs %}
         <div class="row search-card-result">
-            <div class="col-md-4">
+            <div class="col-md-3">
                     <a href="/hotel-detail/{{hotels_obj.uid}}">
                         <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
                     </a></div>
@@ -141,10 +138,9 @@
                         <a  href="/hotel-detail/{{hotels_obj.uid}}">
                             <button class=" btn btn-info">Забронировать</button>
                         </a>
-                        </div>
-                </div>
-                {% endfor %}
+                    </div>
+            </div>
+        {% endfor %}
         </div>
-    </section>
-
+</div>
 {% endblock %}

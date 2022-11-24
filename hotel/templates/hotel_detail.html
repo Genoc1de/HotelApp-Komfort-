@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{%  block start %}
+
+<div class="container mt-5 pt-5">
+    <div class="row search-card-result">
+                
+
+                    
+        <div class="col-md-3">
+           
+        <a href="/hotel-detail/{{hotels_obj.uid}}">
+            <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
+        
+        </a></div>
+   
+        <div class="col-md-5">
+            <h5>{{hotels_obj.hotel_name}}</h5>
+            
+            <p>
+                {{hotels_obj.description|truncatechars:150}}
+            </p>
+            <p>
+                {%for amenitie in hotels_obj.amenities.all %}
+                <b>{{amenitie.amenity_name}}</b>,
+                {% endfor %}
+            </p>
+            
+        </div>
+        <div class="col-md-2 border-left text-center more-offers">
+
+            <p>{{hotels_obj.hotel_price}} рублей</p>
+            <p>Количество комнат</p>
+            <p>{{hotels_obj.room_count}}</p>
+        </div>
+
+    </div>
+
+        <div class="row gallery" style="justify-content: center;">
+            {% for image in hotels_obj.images.all %}
+              <div class="col-md-3">
+                <img
+                  src="/media/{{image.images}}"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt="Boat on Calm Water"
+                />
+              </div>
+            {%endfor %}
+        </div>
+
+    {% if request.user.is_authenticated %}
+    <div class="filter-card">
+        <h5>Забронировать</h5>
+        {%include "messages.html"%}
+        <form method="post">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label for="mintopay">Заезд</label>
+                    <p>
+                        <input type="date" name="checkin" id="checkin" class="form-control">
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <label for="maxtopay">Выезд</label>
+                    <p>
+                        <input type="date" name="checkout" id="checkout" class="form-control">
+                    </p>
+                </div>
+            </div>
+           {% if user.is_authenticated %}
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <input type="submit"   class="btn btn-info btn-block" value="Забронировать">
+                </div>
+            </div>
+            {% else %}
+                <form class="form-inline ml-auto">
+                    <a href="{% url 'login_page' %}" class="btn btn-info">Войти</a>
+                    <a href="{% url 'register_page' %}" class="btn btn-info">Регистрация</a>
+                </form>
+            {% endif %}
+        </form>
+    </div>
+    {% else %}
+
+    <a href="/login/" class="btn btn-danger mt-5 ">Login</a>
+    {% endif %}
+</div>
+
+{% endblock %}

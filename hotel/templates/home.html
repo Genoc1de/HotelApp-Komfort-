@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{%  block start %}
+
+<!-- jumbotron and nav
+<section style="margin-top:70px; background:#51959e" class="jumbotron" role="banner">
+    <div class="container hotels-container">
+        <div class="">
+            <div class="">
+                <h1 style="color:white; padding: 40px 0 0 0;">Отель Комфорт</h1>
+            </div>
+            <div style="width: 22%; height: 20px; border-bottom: 2px solid #f7f8f3; text-align: center; margin-bottom:15px;"></div>
+            <p style="color:white; font-size:16pt;">Самый комфортный отель расположен в самом сердце уральской столицы, в шаговой доступности
+                от основных достопримечательностей города, транспортных развязок и офисов крупнейших компаний.
+                Площадь 1905 года, Ельцин-Центр, Храм-на-Крови, Музей Изобразительных Искусств, Исторический сквер и
+                набережная реки Исеть – эти и многие другие точки притяжения гостей Екатеринбурга находятся в нескольких минутах
+                ходьбы от отеля.</p>
+        </div>
+    </div>
+</section>
+-->
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 700px; margin-top:70px">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img class="bd-placeholder-img" width="100%" height="700px" src="https://marinsparkhotels.ru/upload/slides/max_5eb02ea465a63.webp" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></img>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+              <div style="background: rgba(0, 0, 0, .6); padding: 20px;width:1100px">
+            <h1 style="">Отель Комфорт</h1>
+            <p style="font-size:16pt">Самый комфортный отель расположен в самом сердце уральской столицы, в шаговой доступности
+                от основных достопримечательностей города, транспортных развязок и офисов крупнейших компаний.
+                Площадь 1905 года, Ельцин-Центр, Храм-на-Крови, Музей Изобразительных Искусств, Исторический сквер и
+                набережная реки Исеть – эти и многие другие точки притяжения гостей Екатеринбурга находятся в нескольких минутах
+                ходьбы от отеля.</p>
+            <p style=""><a class="btn btn-lg btn-light" href="#">Узнать больше</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="bd-placeholder-img" width="100%" height="700px" src="https://marinsparkhotels.ru/upload/slides/max_5ede16d5ef27e.webp" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="600px" fill="#777"></rect></img>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img class="bd-placeholder-img" width="100%" height="700px" src="https://marinsparkhotels.ru/upload/offers/max_621fa49035c39.webp" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="600px" height="100%" fill="#777"></rect></img>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+    <section class="search-container mb-5 pb-5" style="background:#f7f8f3">
+        <div class="container" style="">
+            <div class="row">
+                    <div class="col-lg-4">
+                    <div class="row my-2">
+                    </div>
+                    <div class="row mt-2 justify-content-between">
+                        <div class="filter-card">
+                            <h5 style="color:#002c3e">Бронирование</h5>
+                            <form action="#">
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <label for="mintopay">Заезд</label>
+                                        <p>
+                                            <input type="date" name="checkin" id="checkin" class="form-control">
+                                        </p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="maxtopay">Выезд</label>
+                                        <p>
+                                            <input type="date" name="checkout" id="checkout" class="form-control">
+                                        </p>
+                                    </div>
+                                </div>
+                        <div class="">
+                            <div class="form-inline">
+                               <label class="" for="exampleFormControlSelect1">Удобства номера</label>
+                                <select name="amenities" class="form-control" multiple>
+                                <option value="">Выберите</option>
+                                {% for amenities_obj in amenities_objs %}
+                                <option {% if amenities_obj.amenity_name in amenities  %} selected {%endif%}value="{{amenities_obj.amenity_name}}">{{amenities_obj.amenity_name}}</option>
+                                    {% endfor %}
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-inline">
+                            <label class="" for="exampleFormControlSelect1">Сортировать как</label>
+                            <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
+                                <option value="">Популярные</option>
+                                <option {% if sort_by == 'ASC' %} selected {%endif %} value="ASC">Сначала недорогие</option>
+                                <option {% if sort_by == 'DSC' %} selected {%endif %} value="DSC">Сначала дорогие</option>
+                            </select>
+                        </div>
+                            <div class="">
+                                <button style="margin-top:30px" type="submit" class="btn btn-success">Найти</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                    <div>
+                <div>
+                </div>
+
+                    </div>
+                    </div>
+                                            {% for hotels_obj in hotels_objs %}
+        <div class="row search-card-result">
+            <div class="col-md-3">
+                    <a href="/hotel-detail/{{hotels_obj.uid}}">
+                        <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
+                    </a></div>
+                    <div class="col-md-3">
+                        <h5><a style="text-decoration:none; color: black" href="/hotel-detail/{{hotels_obj.uid}}">{{hotels_obj.hotel_name}}</a></h5>
+                        <p>
+                            {{hotels_obj.description|truncatechars:150}}
+                        </p>
+                        <p>
+                            {%for amenitie in hotels_obj.amenities.all %}
+                            <b>{{amenitie.amenity_name}}</b>,
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="col-md-3 border-left text-center more-offers">
+
+                        <p>{{hotels_obj.hotel_price}} ₽</p>
+                        <p>Количество комнат: {{hotels_obj.room_count}}</p>
+                    </div>
+                    <div style="margin-top:30px" class="col-md-3 border-left text-center more-offers">
+                        <a  href="/hotel-detail/{{hotels_obj.uid}}">
+                            <button class=" btn btn-info">Забронировать</button>
+                        </a>
+                        </div>
+                </div>
+                {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Комфорт</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<style>
+/* grouped css attributes via type */
+body {
+  font-family: "Lato", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  background: #fff;
+  color: #777;
+      height: 100%;
+    overflow: auto;
+}
+
+.jumbotron{
+margin-top: 50px;
+}
+
+.form-card {
+  background: #fff;
+  border-bottom: 7px solid #1e3c72;
+  border-top: 7px solid #1e3c72;
+  color: black;
+  padding: 0 2rem;
+}
+
+.form-card h3 {
+  color: #000;
+  padding: 1rem 0 0.1rem 0;
+}
+
+/* hotel card */
+.hotel-card {
+  border: none !important;
+}
+.hotel-card .card-img-top {
+  border-radius: 0px;
+  height: 230px;
+}
+
+.hotel-card .card-body {
+  padding: 0px !important;
+}
+
+.hotel-card .card-body h5 {
+  margin: 0.5rem 0;
+}
+
+.hotel-card .card-body h5 a {
+  color: #777;
+}
+
+.hotel-card .card-body p {
+  font-size: 0.9rem;
+}
+/* end of hotel cards */
+
+/* business process section */
+#process {
+  background: #2980b9;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #2c3e50, #2980b9);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #2c3e50, #2980b9);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+
+#process h2,
+h3 {
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  margin: 1rem 0;
+  padding: 0 0 1rem 0;
+}
+
+#process h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#process h3 {
+  font-size: 1.7rem;
+}
+
+#process p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.icon {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 33px 29px;
+
+  background: #2980b9;
+  color: #fff;
+}
+
+#process .icon {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#process .icon .fa {
+  font-size: 2rem;
+  margin: 11px 2px;
+}
+
+#process .process-step {
+  text-align: center;
+}
+
+#process .process-step h3 {
+  color: white;
+  margin-top: 2.2rem;
+}
+
+#stat-counter {
+  text-align: center;
+}
+#stat-counter h2 {
+  font-size: 3rem;
+
+  border-bottom: 1px solid #777;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+#stat-counter p {
+  padding-top: 1rem;
+}
+
+#stat-counter .counter {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #2980b9;
+  font-size: 50px;
+  font-weight: 100;
+}
+
+#subscribe-panel {
+  background: #1e3c72; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #2a5298,
+    #1e3c72
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #2a5298,
+    #1e3c72
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 5rem 1rem;
+}
+
+#subscribe-panel h2 {
+  position: relative;
+
+  margin-bottom: 10px;
+
+  color: white;
+  line-height: 1.5;
+  font-size: 50px;
+  font-weight: 300;
+}
+
+#subscribe-panel.form-control {
+  width: 100%;
+
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+
+  background: #fff;
+  color: #fff;
+  font-size: 16px !important;
+}
+
+#subscribe-panel.form-control:focus {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+#subscribe-panel.form-control::-webkit-input-placeholder,
+#subscribe-panel.form-control:-moz-placeholder,
+#subscribe-panel.form-control::-moz-placeholder,
+#subscribe-panel.form-control:-ms-input-placeholder {
+  color: #fff;
+}
+
+#subscribe-panel.btn {
+  height: 46px;
+  border: none !important;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  background: #09c6ab;
+
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+#subscribe-panel.form-inline .form-group {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+
+#subscribe-panel.form-inline .form-group .form-control {
+  width: 100%;
+}
+
+#subscribe-panel.gtco-heading {
+  margin-bottom: 30px;
+}
+
+#subscribe-panel.gtco-heading h2 {
+  color: #fff;
+}
+
+#subscribe-panel.gtco-heading p {
+  color: rgba(255, 255, 255, 0.5);
+}
+.copyright {
+  background: #005c97; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #363795,
+    #005c97
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #363795,
+    #005c97
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.copyright h3 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+.copyright p {
+  color: #fff;
+}
+
+.footer-nav a {
+  color: #777;
+}
+
+/* destination page */
+.destination-container {
+  height: 70vh;
+  padding: 7rem;
+}
+
+.hotels-form {
+  background: #283e51; /* fallback for old browsers */
+  padding: 1rem;
+}
+
+.hotels-container {
+  padding: 0.5rem 0 7rem 0;
+}
+
+.search-card-result {
+  box-shadow: 0px 1px 4px rgba(41, 51, 57, 0.5);
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  background-color: #fff;
+}
+
+.search-card-result h5 {
+  font-style: 1.1rem;
+  font-weight: 700;
+}
+.search-card-result p {
+  font-size: 0.9rem;
+}
+
+.search-card-result .more-offers p {
+  margin-bottom: 0.3rem;
+}
+
+.more-offers .additional {
+  padding-top: 0.2rem;
+  font-weight: 700;
+}
+
+.fa.checked {
+  color: orange;
+}
+
+.map-container-btn {
+  height: 100px;
+
+  box-shadow: 0px 1px 4px rgba(41, 51, 57, 0.5);
+  background-color: wheat;
+}
+
+.map-container-btn .btn {
+  margin-top: 30px;
+}
+
+.filter-card {
+  padding: 0;
+  background: #fff;
+  color: black;
+}
+
+.filter-card h5 {
+  margin: 10px 0;
+  padding: 1rem;
+
+  box-shadow: 0px 1px 4px rgba(41, 51, 57, 0.5);
+  color: #000;
+}
+.filter-card form {
+  box-shadow: 0px 1px 4px rgba(41, 51, 57, 0.5);
+  padding: 0.5rem 2rem;
+}
+.map-btn {
+  background-color: #fff !important;
+}
+
+.nav-link-ltr {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 0.75;
+}
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 10px;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+.nav-link-ltr::before {
+  width: 0%;
+  bottom: -4px;
+}
+
+.nav-link-ltr:hover::before {
+  width: 70%;
+}
+</style>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+  <body class="bg-light">
+    
+<nav class="navbar navbar-expend-md fixed-top px-5" style="background:#002c3e">
+    <div class="nav">
+    <a class="navbar-brand" href="/" style="color:white;">Комфорт</a>
+     <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link nav-link-ltr" style="color:white;margin-top:5px;" href="{% url 'PostList' %}">Отзывы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px;" href="#">О нас</a>
+        </li>
+    </ul>
+        </div>
+        <div class="navbar" id="navbarCollapse">
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <div class="btn-group">
+                         <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" style="color: white;" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userMenu">
+                            <a class="dropdown-item" href="{% url 'logout' %}"> <span class="glyphicon glyphicon-log-out"></span> log out</a>
+                        </div>
+                        </div>
+
+                    </li>
+                </ul>
+            {% else %}
+                <form class="form-inline ml-auto">
+                    <a href="{% url 'login_page' %}" class="btn btn-light">Войти</a>
+                    <a href="{% url 'register_page' %}" class="btn btn-light">Регистрация</a>
+                </form>
+            {% endif %}
+        </div>
+</nav>
+      {% block start %}
+      {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

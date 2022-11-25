@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="bd-placeholder-img" width="100%" height="700px" src="https://marinsparkhotels.ru/upload/slides/max_5ede16d5ef27e.webp" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="600px" fill="#777"></rect></img>
+        <img class="bd-placeholder-img" width="100%" height="700px" src="http://i.share.pho.to/822c2135_o.jpeg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="600px" fill="#777"></rect></img>
 
         <div class="container">
           <div class="carousel-caption">
@@ -112,14 +112,14 @@
          </div>
         </div>
     </section>
-    <div class="container">
+    <div class="container" style="display: flex;flex-wrap: wrap;">
          {% for hotels_obj in hotels_objs %}
-        <div class="row search-card-result">
+        <div class="row search-card-result" style="align-items: center">
             <div class="col-md-3">
                     <a href="/hotel-detail/{{hotels_obj.uid}}">
                         <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
                     </a></div>
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <h5><a style="text-decoration:none; color: black" href="/hotel-detail/{{hotels_obj.uid}}">{{hotels_obj.hotel_name}}</a></h5>
                         <p>
                             {{hotels_obj.description|truncatechars:150}}

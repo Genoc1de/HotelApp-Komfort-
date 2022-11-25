@@ -374,7 +374,7 @@ h3 {
 </head>
   <body class="bg-light">
     
-<nav class="navbar navbar-expend-md fixed-top px-5" style="background:#002c3e">
+<nav class="navbar navbar-expend-md fixed-top px-5" style="background:#002c3e; height: 80px;">
     <div class="nav">
     <a class="navbar-brand" href="/" style="color:white;">Комфорт</a>
      <ul class="nav">
@@ -394,8 +394,8 @@ h3 {
                          <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" style="color: white;" aria-haspopup="true" aria-expanded="false">
                             {{ user.username }}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="userMenu">
-                            <a class="dropdown-item" href="{% url 'logout' %}"> <span class="glyphicon glyphicon-log-out"></span> log out</a>
+                        <div class="dropdown-menu" aria-labelledby="userMenu" style="margin-left:10px; height:50px">
+                            <a class="dropdown-item" style="text-align:center; padding: 0 0 0 0;" href="{% url 'logout' %}">Выйти</a>
                         </div>
                         </div>
 

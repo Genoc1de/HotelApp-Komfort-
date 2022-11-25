@@ -86,7 +86,7 @@ def login_page(request):
         user_obj = User.objects.filter(username = username)
 
         if not user_obj.exists():
-            messages.warning(request, 'Account not found ')
+            messages.warning(request, 'Аккаунт не найден')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
         user_obj = authenticate(username = username , password = password)
@@ -110,7 +110,7 @@ def register_page(request):
         user_obj = User.objects.filter(username = username)
 
         if user_obj.exists():
-            messages.warning(request, 'Username already exists')
+            messages.warning(request, 'Пользователь уже существует')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
         user = User.objects.create(username = username)

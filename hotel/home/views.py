@@ -126,3 +126,5 @@ def logout_request(request):
 	return redirect('home')
 
 
+def aboutpage(request):
+    return render(request, 'info.html',)

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {%  block start %}
-
+<div class="container">
 {% for article in object_list %}
 <div class="card" style="margin-top: 10%">
     <div class="card-header">
@@ -21,6 +21,7 @@
             </p>
         {% endfor %}
     </div>
+</div>
 </div>
 {% endfor %}
 {% endblock %}

@@ -1,9 +1,15 @@
 {% extends "base.html" %}
-
+{% block title %}Articles{% endblock %}
 {%  block start %}
+<div style="margin-top: 10%"></div>
 <div class="container">
+    <div class="card">
+        <a class="btn btn-dark" href="{% url 'article_new'  %}">Написать отзыв</a>
+    </div>
+</div>
 {% for article in object_list %}
-<div class="card" style="margin-top: 10%">
+<div class="container">
+<div class="card">
     <div class="card-header">
         <span class="font-weidht-bold">{{ article.title }}</span> &middot;
         <span class="text-muted">by {{ article.author }} || {{ article.date }}</span>

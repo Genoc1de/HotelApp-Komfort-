@@ -127,4 +127,4 @@ def logout_request(request):
 
 
 def aboutpage(request):
-    return render(request, 'info.html',)
+    return render(request, 'about_page.html',)

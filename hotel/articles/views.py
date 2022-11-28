@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from . import models
 
 
-class ArticleListView(LoginRequiredMixin, ListView):
+class ArticleListView(ListView):
     model = models.Article
     template_name = 'article_list.html'
 

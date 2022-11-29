@@ -1,6 +1,7 @@
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 import uuid
 
 class BaseModel(models.Model):
@@ -37,7 +38,7 @@ class HotelImages(BaseModel):
 
 class HotelBooking(BaseModel):
     hotel= models.ForeignKey(Hotel  , related_name="hotel_bookings" , on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name="user_bookings" , on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     start_date = models.DateField()
     end_date = models.DateField()
     booking_type= models.CharField(max_length=100,choices=(('Pre Paid' , 'Pre Paid') , ('Post Paid' , 'Post Paid')))

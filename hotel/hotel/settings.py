@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'crispy_forms',
     'articles',
+    'users',
 
 ]
 
@@ -137,6 +138,7 @@ STATICFILES_DIR = {
     os.path.join(BASE_DIR , "hotels/static")
 }
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
 MEDIA_URL = '/media/'

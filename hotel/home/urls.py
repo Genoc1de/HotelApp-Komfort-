@@ -10,10 +10,11 @@ urlpatterns = [
     path('', home, name='home'),
     path('hotel-detail/<uid>/' , hotel_detail , name="hotel_detail"),
     path('login/', login_page, name='login_page'),
-    path('register/', register_page, name='register_page'),
     path('logout/', logout_request, name='logout'),
     path('articles/', include('articles.urls')),
     path('about/', aboutpage, name='aboutpage'),
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls')),
 
 ]
 

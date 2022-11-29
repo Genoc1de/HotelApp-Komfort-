@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
@@ -102,23 +102,7 @@ def login_page(request):
     return render(request ,'login.html')
 
 
-def register_page(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
 
-        user_obj = User.objects.filter(username = username)
-
-        if user_obj.exists():
-            messages.warning(request, 'Пользователь уже существует')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-        user = User.objects.create(username = username)
-        user.set_password(password)
-        user.save()
-        return redirect('/')
-
-    return render(request , 'register.html')
 
 def logout_request(request):
 	logout(request)

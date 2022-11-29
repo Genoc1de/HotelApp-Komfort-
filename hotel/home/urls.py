@@ -9,7 +9,6 @@ urlpatterns = [
     path('check_booking/', check_booking),
     path('', home, name='home'),
     path('hotel-detail/<uid>/' , hotel_detail , name="hotel_detail"),
-    path('login/', login_page, name='login_page'),
     path('logout/', logout_request, name='logout'),
     path('articles/', include('articles.urls')),
     path('about/', aboutpage, name='aboutpage'),

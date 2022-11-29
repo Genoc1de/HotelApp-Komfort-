@@ -78,31 +78,6 @@ def hotel_detail(request,uid):
         'hotels_obj' :hotel_obj
     })
 
-def login_page(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user_obj = User.objects.filter(username = username)
-
-        if not user_obj.exists():
-            messages.warning(request, 'Аккаунт не найден')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-        user_obj = authenticate(username = username , password = password)
-        if not user_obj:
-            messages.warning(request, 'Неверный пароль ')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-        login(request , user_obj)
-        return redirect('/')
-
-        
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    return render(request ,'login.html')
-
-
-
 
 def logout_request(request):
 	logout(request)

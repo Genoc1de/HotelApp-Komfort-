@@ -3,15 +3,13 @@
 {%  block start %}
 
 <div class="container mt-5 pt-5 col-6">
-    <h2>Login</h2>
+    <h2>Войти</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-success ml-2" type="submit">Login</button>
+        <button class="btn btn-success ml-2" type="submit">Войти</button>
         <a class="btn btn-dark" href="{% url 'signup' %}" style="margin-left:3%">Регистрация</a>
     </form>
 
 </div>
-
-
 {% endblock %}

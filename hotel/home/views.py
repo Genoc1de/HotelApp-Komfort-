@@ -91,7 +91,7 @@ def login_page(request):
 
         user_obj = authenticate(username = username , password = password)
         if not user_obj:
-            messages.warning(request, 'Invalid password ')
+            messages.warning(request, 'Неверный пароль ')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
         login(request , user_obj)
@@ -122,7 +122,7 @@ def register_page(request):
 
 def logout_request(request):
 	logout(request)
-	messages.info(request, "You have successfully logged out.")
+	messages.info(request, "Вы успешно вышли из аккаунта.")
 	return redirect('home')
 
 

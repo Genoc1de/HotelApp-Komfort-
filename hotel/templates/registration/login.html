@@ -8,7 +8,10 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-success ml-2" type="submit">Войти</button>
-        <a class="btn btn-dark" href="{% url 'signup' %}" style="margin-left:3%">Регистрация</a>
+        <div class="btn-group" role="group">
+        <a class="btn btn-dark" href="{% url 'password_reset' %}">Забыли пароль?</a>
+        <a class="btn btn-dark" href="{% url 'signup' %}">Нет учетной записи?</a>
+        </div>
     </form>
 
 </div>

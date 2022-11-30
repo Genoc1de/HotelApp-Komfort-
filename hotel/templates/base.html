@@ -388,19 +388,11 @@ h3 {
         </div>
         <div class="navbar" id="navbarCollapse">
             {% if user.is_authenticated %}
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <div class="btn-group">
-                         <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" style="color: white;" aria-haspopup="true" aria-expanded="false">
-                            {{ user.username }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="userMenu" style="margin-left:10px; height:50px">
-                            <a class="dropdown-item" style="text-align:center; padding: 0 0 0 0;" href="{% url 'logout' %}">Выйти</a>
-                        </div>
-                        </div>
-
-                    </li>
-                </ul>
+            <form class="form-inline ml-auto">
+                <a class="btn btn-outline-light" disabled>{{ user.username }}</a>
+                <a class="btn btn-light" href="{% url 'password_change' %}">Изменить пароль</a>
+                <a class="btn btn-light" href="{% url 'logout' %}">Выйти</a>
+            </form>
             {% else %}
                 <form class="form-inline ml-auto">
                     <a href="{% url 'login' %}" class="btn btn-light">Войти</a>

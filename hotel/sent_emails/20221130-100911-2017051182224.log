@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: muzyki99@bk.ru
+Date: Wed, 30 Nov 2022 05:09:11 -0000
+Message-ID: <166978495178.17860.704201801780134004@114-03>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/users/reset/Ng/bfp5jb-ad9af1f6ea3941a1611d3bbdefcdd899/
+
+Your username, in case you’ve forgotten: murka
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

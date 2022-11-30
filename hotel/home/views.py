@@ -7,8 +7,6 @@ from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 
-
-
 def check_booking(start_date  , end_date ,uid , room_count):
     qs = HotelBooking.objects.filter(
         start_date__lte=start_date,

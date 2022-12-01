@@ -1,18 +1,80 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {%  block start %}
+<style>
+.btn.btn-primary {
+    background: #fbceb5 !important;
+    border: 1px solid #fbceb5 !important;
+    color: #000 !important;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-control{
+    background: transparent;
+    border: none;
+    height: 50px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
 
-<div class="container mt-5 pt-5 col-6">
-    <h2>Войти</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success ml-2" type="submit">Войти</button>
-        <div class="btn-group" role="group">
-        <a class="btn btn-dark" href="{% url 'password_reset' %}">Забыли пароль?</a>
-        <a class="btn btn-dark" href="{% url 'signup' %}">Нет учетной записи?</a>
+}
+.form-control:focus{
+    background: transparent;
+    border: none;
+    transition: 0.3s;
+    color: white;
+    outline: none;
+}
+
+.form-control::placeholder {
+    font-weight: bold;
+    color: white;
+}
+
+body:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .3;
+    z-index: -1;
+}
+</style>
+<body style="background-image: url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/bg.jpg.webp); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
+    <section class="ftco-section"style="margin-top:10%">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+                    <h3 class="mb-4 text-center">Есть аккаунт?</h3>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text"  name="username" id="username" class="form-control" placeholder="Логин" >
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name='password' class="form-control" id="password" placeholder="Пароль">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Войти</button>
+                            </div>
+                            {{form.errors}}
+                            <div class="form-group d-md-flex">
+                                <div class="w-50 text-md-right">
+                                    <a href="{% url 'password_reset' %}" style="color: #fff">Забыли пароль?</a>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
         </div>
-    </form>
-
-</div>
+    </div>
+    </section>
+</body>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% load static %}
+{% block title %}Войти{% endblock %}
 {%  block start %}
 <style>
 .btn.btn-primary {
@@ -42,11 +43,15 @@ body:after {
     bottom: 0;
     content: '';
     background: #000;
-    opacity: .3;
+    opacity: .5;
     z-index: -1;
 }
+.login-text{
+    font-size:16pt;
+    text-decoration: none;
+}
 </style>
-<body style="background-image: url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/bg.jpg.webp); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
     <section class="ftco-section"style="margin-top:10%">
     <div class="container">
         <div class="row justify-content-center">
@@ -64,12 +69,12 @@ body:after {
                             <div class="form-group">
                                 <button type="submit" class="form-control btn btn-primary">Войти</button>
                             </div>
-                            {{form.errors}}
                             <div class="form-group d-md-flex">
-                                <div class="w-50 text-md-right">
-                                    <a href="{% url 'password_reset' %}" style="color: #fff">Забыли пароль?</a>
+                                <div class="w-50">
+                                    <a class="login-text" href="{% url 'password_reset' %}" style="color: #fff">Забыли пароль?</a>
                                 </div>
                             </div>
+                            <p class="w-100 text-center" style="color:white; font-size:16pt;"><a href="{% url 'signup' %}" style="color: #fff; text-decoration: none;">— Или зарегистрируйтесь —</a></p>
                         </form>
                 </div>
             </div>

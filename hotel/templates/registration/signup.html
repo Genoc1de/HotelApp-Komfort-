@@ -1,18 +1,92 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Регистрация{% endblock %}
-
-
 {%  block start %}
-<div class="container mt-5 pt-5 col-6">
-    <h2>Регистрация</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div>
-        <button class="btn btn-success mt-5" type="submit">Зарегистрироваться</button>
+<style>
+.btn.btn-primary {
+    background: #fbceb5 !important;
+    border: 1px solid #fbceb5 !important;
+    color: #000 !important;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-control{
+    background: transparent;
+    border: none;
+    height: 50px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.form-control:focus{
+    background: transparent;
+    border: none;
+    transition: 0.3s;
+    color: white;
+    outline: none;
+}
+
+.form-control::placeholder {
+    font-weight: bold;
+    color: white;
+}
+
+body:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .5;
+    z-index: -1;
+}
+.login-text{
+    font-size:16pt;
+    text-decoration: none;
+}
+</style>
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
+    <section class="ftco-section"style="margin-top:10%">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+                    <h3 class="mb-4 text-center">Регистрация</h3>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text"  name="username" id="username" class="form-control" placeholder="Логин" required >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name='first_name' class="form-control" id="first_name" placeholder="Имя">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name='last_name' class="form-control" id="last_name" placeholder="Фамилия">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name='email' class="form-control" id="email" placeholder="Электронная почта" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name='password1' class="form-control" id="password1" placeholder="Новый пароль" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name='password2' class="form-control" id="password2" placeholder="Подтвердите пароль" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Зарегистрироваться</button>
+                            </div>
+                            <p class="w-100 text-center" style="color:white; font-size:16pt;"><a href="{% url 'login' %}" style="color: #fff; text-decoration: none;">— Или Войдите —</a></p>
+                        </form>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
+    </div>
+    </section>
+</body>
 {% endblock %}

@@ -11,13 +11,15 @@
 <div class="container">
 <div class="card">
     <div class="card-header">
+        <a href="{% url 'article_detail' article.pk %}" style="text-decoration: none;">
         <span class="font-weidht-bold">{{ article.title }}</span> &middot;
-        <span class="text-muted">by {{ article.author }} || {{ article.date }}</span>
+        <span class="text-muted">{{ article.date }}</span>
+        </a>
     </div>
     <div class="card-body">
         {{ article.body }}
-        <a href="{% url 'article_edit' article.pk %}">Edit</a>
-        <a href="{% url 'article_delete' article.pk %}">Delete</a>
+        <a href="{% url 'article_edit' article.pk %}">Редактировать</a>
+        <a href="{% url 'article_delete' article.pk %}">Удалить</a>
     </div>
     <div class="card-footer text-center text-muted">
         {% for comment in article.comments.all %}

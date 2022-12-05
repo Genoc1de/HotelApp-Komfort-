@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Articles{% endblock %}
 {%  block start %}
+<style>
+    body:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .5;
+    z-index: -1;
+}
+</style>
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
 <div style="margin-top: 10%"></div>
 <div class="container">
     <div class="card">
@@ -31,5 +45,6 @@
     </div>
 </div>
 </div>
+</body>
 {% endfor %}
 {% endblock %}

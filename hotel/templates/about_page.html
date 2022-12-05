@@ -1,23 +1,45 @@
 {% extends "base.html" %}
 
 {%  block start %}
-
-<section class="about" style="margin-top:10%;">
-  <div class="container">
-      <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-      <p class="fst-italic"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <ul>
-        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+<style>
+    body:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .5;
+    z-index: -1;
+}
+</style>
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
+<div style="margin-top:5%;">
+<div class="container col-12" style="display:flex">
+    <p style="color: white; font-size:16pt; text-align:; margin-bottom:5%">Отель Комфорт открылся зимой 2021 года.
+    В отеле 15 уютных, современных номеров.
+    Рядом с гостиницей находится Площадь 1905 года, Ельцин-Центр, Храм-на-Крови, Музей Изобразительных Искусств, Исторический сквер и набережная реки Исеть.
+    Благодаря удобной транспортной развязке, нас любят гости проезжающие город транзитом, шаговая доступность до центра города, близость остановок общественного транспорта порадует гостей, желающих осмотреть достопримечательности города.
+    Мы всегда рады и жителям Екатеринбурга, особенно в выходные и праздничные дни, желающие отдохнуть. Наши администраторы позаботятся о вас.
+    У нас комфорто , тихо и уютно. Мы Вас накормим в любое время суток, приготовив еду непосредственно перед подачей.
+    </p>
+    <p>safas</p>
+</div>
+<div class="container col-12" style="display: flex;">
+  <div class="col-3">
+      <h1 style="color: white; color: #fff; padding: 0 0 1rem 0;">Контакты</h1>
+      <ul style="list-style-type: none; padding: 0 0 0 0;">
+        <li style="color: white;"><a style="font-size: 18pt; font-weight: bold;">Фактический адрес</a><p style="font-size:14pt">620027, Свердловская область, Екатеринбург, улица Челюскинцев 106</p></li>
+        <li style="color: white;"><a style="font-size: 18pt; font-weight: bold;">Телефон</a><p style="font-size:14pt">8 (343) 310-00-44</p></li>
+        <li style="color: white;"><a style="font-size: 18pt; font-weight: bold;">E-mail</a><p style="font-size:14pt">hotel-comfort@gmail.com</p></li>
       </ul>
-      <p> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
-        <div class="col">
-      <img class="img-fluid rounded float-left" style="width: 30%" src="https://images.unsplash.com/photo-1593624859907-dfe61e03dbeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"  alt="">
-    </div>
+      </div>
+      <div class=" col-10">
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A782cdae9ae4950009693dbc2ed96dbb3e49e89f3bf215477c3eb9a40ec89082c&amp;width=100%25&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
+      </div>
+</div>
+</div>
+</body>
 
-  </div>
-
-
-</section>
 {% endblock %}

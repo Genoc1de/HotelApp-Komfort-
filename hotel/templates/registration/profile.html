@@ -14,7 +14,19 @@
        <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Ваш профиль</legend>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div id="div_id_username" class="control-group">
+                        <label for="id_username" class="control-label requiredField">Имя пользователя<span class="asteriskField">*</span></label>
+                        <div class="controls">
+                            <input type="text" name="username" value="{{ user.username }}" maxlength="150" class="textinput textInput" required="" id="id_username">
+                            <p id="hint_id_username" class="help-block">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</p>
+                        </div>
+                    </div>
+                </li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
               {{ u_form|crispy }}
               {{ p_form|crispy }}
           </fieldset>

@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block start %}
-<div class="card" style="margin-top:5%">
+<style>
+    body:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .5;
+    z-index: -1;
+}
+</style>
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
+<div class="container" style="margin-top:5%">
+<div class="card">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="card-body">
@@ -10,7 +25,6 @@
         </div>
           </div>
       </div>
-
        <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
@@ -24,14 +38,34 @@
                         </div>
                     </div>
                 </li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
+                  <li class="list-group-item">
+                      <div id="div_id_email" class="control-group"> <label for="id_email" class="control-label requiredField">Email<span class="asteriskField">*</span> </label>
+                          <div class="controls">
+                              <input type="email" name="email" value="{{ user.email }}" class="emailinput" required="" id="id_email">
+                          </div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                      <div id="div_id_image" class="control-group">
+                          <label for="id_image" class="control-label requiredField">Image<span class="asteriskField">*</span></label>
+                          <p>Изменить аватар</p>
+                          <div class="controls">
+                            <input type="file" name="image" accept="image/*" class="clearablefileinput" id="id_image">
+                          </div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                      <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Обновить</button>
+                      </div>
+                  </li>
               </ul>
+              <!--
               {{ u_form|crispy }}
               {{ p_form|crispy }}
+              -->
           </fieldset>
-          <div class="form-group">
-              <button class="btn btn-outline-info" type="submit">Обновить</button>
-          </div>
       </form>
+</div>
+</body>
 {% endblock  %}

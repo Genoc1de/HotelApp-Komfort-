@@ -4,6 +4,8 @@ from django.contrib import messages
 from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+
 
 
 
@@ -11,7 +13,13 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+
+            user.save()
+
+            user_group = Group.objects.get(name='Guests')
+
+            user.groups.add(user_group)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)

@@ -2,13 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from .models import (Amenities, Hotel, HotelBooking)
+from django.views.generic import TemplateView
+from phone_field import phone_number
+
+from .models import (Amenities, Hotel, Booking)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 
 def check_booking(start_date  , end_date ,uid , room_count):
-    qs = HotelBooking.objects.filter(
+    qs = Booking.objects.filter(
         start_date__lte=start_date,
         end_date__gte=end_date,
         hotel__uid = uid
@@ -22,6 +25,7 @@ def check_booking(start_date  , end_date ,uid , room_count):
 def home(request):
     amenities_objs = Amenities.objects.all()
     hotels_objs = Hotel.objects.all()
+
 
     sort_by = request.GET.get('sort_by')
     search = request.GET.get('search')
@@ -57,12 +61,12 @@ def hotel_detail(request,uid):
         checkin = request.POST.get('checkin')
         checkout= request.POST.get('checkout')
         hotel = Hotel.objects.get(uid = uid)
-        if not check_booking(checkin ,checkout  , uid , hotel.room_count):
+        if not check_booking(checkin ,checkout,  uid , hotel.room_count):
             messages.warning(request, 'Отель уже забронирован на эти даты ')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-        HotelBooking.objects.create(hotel=hotel , user = request.user , start_date=checkin
-        , end_date = checkout , booking_type  = 'Pre Paid')
+        Booking.objects.create(hotel=hotel , user = request.user , start_date=checkin
+        , end_date = checkout , )
         
         messages.success(request, 'Ваше бронирование сохранено')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -84,3 +88,13 @@ def logout_request(request):
 def aboutpage(request):
     return render(request, 'about_page.html',)
 
+def booking(request):
+
+    return render(request, 'booking.html',)
+
+class booking(TemplateView):
+
+    def get(self,request):
+         bookings = Booking.objects.all()          # worth looking into?
+
+         return render(request, 'booking.html', {'bookings': bookings})

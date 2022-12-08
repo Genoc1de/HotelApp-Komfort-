@@ -3,6 +3,9 @@ from django.db import models
 from django.conf import settings
 import uuid
 
+from phone_field import PhoneField
+
+
 class BaseModel(models.Model):
     uid = models.UUIDField(default=uuid.uuid4   , editable=False , primary_key=True)
     created_at = models.DateField(auto_now_add=True)
@@ -19,7 +22,7 @@ class Amenities(BaseModel):
         return self.amenity_name
 
 class Hotel(BaseModel):
-    hotel_name= models.CharField(max_length=100)
+    hotel_name = models.CharField(max_length=100)
     hotel_price = models.IntegerField()
     description = models.TextField(max_length=200)
     amenities = models.ManyToManyField(Amenities)
@@ -35,9 +38,9 @@ class HotelImages(BaseModel):
 
 
 
-class HotelBooking(BaseModel):
-    hotel= models.ForeignKey(Hotel  , related_name="hotel_bookings" , on_delete=models.CASCADE)
+class Booking(BaseModel):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE,)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     start_date = models.DateField()
     end_date = models.DateField()
-    booking_type= models.CharField(max_length=100,choices=(('Pre Paid' , 'Pre Paid') , ('Post Paid' , 'Post Paid')))
+    booking_type = models.CharField(max_length=100,choices=(('Pre Paid' , 'Pre Paid') , ('Post Paid' , 'Post Paid')))

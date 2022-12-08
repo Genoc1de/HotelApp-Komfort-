@@ -14,6 +14,7 @@ urlpatterns = [
     path('about/', aboutpage, name='aboutpage'),
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
+    path('booking/', booking.as_view(), name ='booking')
 
 ]
 

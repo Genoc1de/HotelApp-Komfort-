@@ -60,12 +60,13 @@ def hotel_detail(request,uid):
     if request.method == 'POST':
         checkin = request.POST.get('checkin')
         checkout= request.POST.get('checkout')
+        phone = request.POST.get('phone_0')
         hotel = Hotel.objects.get(uid = uid)
         if not check_booking(checkin ,checkout,  uid , hotel.room_count):
             messages.warning(request, 'Отель уже забронирован на эти даты ')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-        Booking.objects.create(hotel=hotel , user = request.user , start_date=checkin
+        Booking.objects.create(hotel=hotel ,phone=phone, user = request.user , start_date=checkin
         , end_date = checkout , )
         
         messages.success(request, 'Ваше бронирование сохранено')

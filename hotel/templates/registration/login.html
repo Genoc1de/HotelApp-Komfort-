@@ -54,6 +54,7 @@ body:after {
     font-size:16pt;
     text-decoration: none;
 }
+
 </style>
 <body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
     <section class="ftco-section"style="margin-top:10%">
@@ -70,7 +71,7 @@ body:after {
                             <div class="form-group">
                                 <input type="password" name='password' class="form-control" id="password" placeholder="Пароль" required>
                             </div>
-                            {{form.errors}}
+                            <li style="color:white;list-style-type: none;">{{form.errors}}</li>
                             <div class="form-group">
                                 <button type="submit" class="form-control btn btn-primary">Войти</button>
                             </div>

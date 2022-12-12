@@ -387,9 +387,11 @@ h3 {
       <li class="nav-item">
         <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px;" href="{% url 'aboutpage' %}">О нас</a>
         </li>
+         {% if user.is_staff %}
       <li class="nav-item">
         <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px;" href="{% url 'booking' %}">Бронирования</a>
         </li>
+         {% endif %}
     </ul>
         </div>
         <div class="navbar" id="navbarCollapse">

@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DeleteView
 from phone_field import phone_number
-
 from .models import (Amenities, Hotel, Booking)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
+from . import models
 
 def check_booking(start_date  , end_date ,uid , room_count):
     qs = Booking.objects.filter(
@@ -96,6 +96,12 @@ def booking(request):
 class booking(TemplateView):
 
     def get(self,request):
+
          bookings = Booking.objects.all()          # worth looking into?
 
          return render(request, 'booking.html', {'bookings': bookings})
+
+class BookingDelete(DeleteView):
+    model = models.Booking
+    template_name = ''
+    success_url = reverse_lazy('home')

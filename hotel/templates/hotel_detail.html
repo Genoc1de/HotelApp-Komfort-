@@ -78,7 +78,7 @@
     </div>
     {% else %}
 <div class="container" style="display:flex;justify-content: center;">
-    <a href="/login/" class="btn btn-danger mt-5 col-5">Войдите, чтобы забронировать!</a>
+    <a href="{% url 'login' %}" class="btn btn-danger mt-5 col-5">Войдите, чтобы забронировать!</a>
 </div>
     {% endif %}
 </div>

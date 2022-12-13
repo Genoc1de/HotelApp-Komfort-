@@ -108,10 +108,10 @@
                     <a href="/hotel-detail/{{hotels_obj.uid}}">
                         <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
                     </a></div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <h5><a style="text-decoration:none; color: black" href="/hotel-detail/{{hotels_obj.uid}}">{{hotels_obj.hotel_name}}</a></h5>
                         <p>
-                            {{hotels_obj.description|truncatechars:150}}
+                            {{hotels_obj.description}}
                         </p>
                         <p>
                             {%for amenitie in hotels_obj.amenities.all %}
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col-md-2 border-left text-center more-offers">
                         <p>{{hotels_obj.hotel_price}} ₽</p>
-                        <p>Количество комнат: {{hotels_obj.room_count}}</p>
+                        <p>Количество мест: {{hotels_obj.room_count}}</p>
                     </div>
                     <div style="margin-top:30px" class="col-md-1 border-left text-center more-offers">
                         <a  href="/hotel-detail/{{hotels_obj.uid}}">

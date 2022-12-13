@@ -4,46 +4,34 @@
 
 <div class="container mt-5 pt-5">
     <div class="row search-card-result">
-                
-
-                    
         <div class="col-md-3">
-           
         <a href="/hotel-detail/{{hotels_obj.uid}}">
             <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
-        
         </a></div>
-   
-        <div class="col-md-5">
+        <div class="col-md-5" style="display: flex;align-content: center;flex-wrap: wrap;">
             <h5>{{hotels_obj.hotel_name}}</h5>
             
             <p>
-                {{hotels_obj.description|truncatechars:150}}
+                {{hotels_obj.description}}
             </p>
             <p>
                 {%for amenitie in hotels_obj.amenities.all %}
                 <b>{{amenitie.amenity_name}}</b>,
                 {% endfor %}
             </p>
-            
         </div>
-        <div class="col-md-2 border-left text-center more-offers">
-
-            <p>{{hotels_obj.hotel_price}} рублей</p>
-            <p>Количество мест</p>
-            <p>{{hotels_obj.room_count}}</p>
+        <div class="col-md-2 border-left text-center more-offers" style="display:flex;justify-content: center;align-items: center;">
+            <p style="font-size: 14pt;">{{hotels_obj.hotel_price}} рублей</p>
         </div>
-
+        <div class="col-md-2" style="display:flex;justify-content: center;align-items: center;">
+            <p style="font-size: 14pt">Количество мест: {{hotels_obj.room_count}}</p>
+        </div>
     </div>
 
         <div class="row gallery" style="justify-content: center;">
             {% for image in hotels_obj.images.all %}
-              <div class="col-md-3">
-                <img
-                  src="/media/{{image.images}}"
-                  class="w-100 shadow-1-strong rounded mb-4"
-                  alt="Boat on Calm Water"
-                />
+              <div class="col-md-4">
+                <img src="/media/{{image.images}}" class="w-100 shadow-1-strong rounded mb-4"/>
               </div>
             {%endfor %}
         </div>
@@ -89,8 +77,9 @@
         </form>
     </div>
     {% else %}
-
-    <a href="/login/" class="btn btn-danger mt-5 ">Войдите, чтобы забронировать!</a>
+<div class="container" style="display:flex;justify-content: center;">
+    <a href="/login/" class="btn btn-danger mt-5 col-5">Войдите, чтобы забронировать!</a>
+</div>
     {% endif %}
 </div>
 

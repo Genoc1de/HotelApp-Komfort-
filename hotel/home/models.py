@@ -28,6 +28,7 @@ class Hotel(BaseModel):
     amenities = models.ManyToManyField(Amenities)
     room_count = models.IntegerField(default=10)
 
+
     def __str__(self) -> str:
         return self.hotel_name
 

@@ -63,9 +63,8 @@ def hotel_detail(request,uid):
         phone = request.POST.get('phone_0')
         hotel = Hotel.objects.get(uid = uid)
         if not check_booking(checkin ,checkout,  uid , hotel.room_count):
-            if checkin > timezone.now().date():
-                messages.warning(request, 'Отель уже забронирован на эти даты ')
-                return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            messages.warning(request, 'Отель уже забронирован на эти даты ')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
         Booking.objects.create(hotel=hotel ,phone=phone, user = request.user , start_date=checkin
         , end_date = checkout , )

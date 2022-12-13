@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 
 {%  block start %}
-<div class="container" style="margin-top: 10%">
+<div class="container col-12" style="margin-top: 10%">
     {% for i in bookings %}
-<div class="card">
-    <div class="card-header">
-        <a class="font-weidht-bold"> {{ i.user }} </a>
+    <div class="row justify-content-center mb-5">
+    <div class="card col-8" style="color:black">
+        <div class="card-header">
+            <a class="font-weidht-bold"> {{ i.user }} </a>
+        </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Имя: {{ i.user.first_name }}</li>
+        <li class="list-group-item">Фамилия: {{ i.user.last_name  }}</li>
+        <li class="list-group-item">Телефон: {{ i.phone }}</li>
+        <li class="list-group-item">Электронная почта: {{ i.user.email }}</li>
+        <li class="list-group-item">Номер: {{ i.hotel }}</li>
+        <li class="list-group-item">Заезд: {{ i.start_date }}</li>
+        <li class="list-group-item">Выезд: {{ i.end_date }}</li>
+    </ul>
     </div>
-    <div class="card-body">
-        <a> {{ i.hotel }} </a>
     </div>
-    <div class="card-body">
-        <a>Заезд: {{ i.start_date }} </a> <a>Выезд: {{ i.end_date }} </a>
-    </div>
-        <div class="card-body">
-        <a>Телефон: {{ i.phone }}</a>
-    </div>
-
-
-
-</div>
 {% endfor %}
 
 </div>

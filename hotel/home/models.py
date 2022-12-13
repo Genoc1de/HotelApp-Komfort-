@@ -26,8 +26,8 @@ class Hotel(BaseModel):
     hotel_price = models.IntegerField()
     description = models.TextField(max_length=500)
     amenities = models.ManyToManyField(Amenities)
-    room_count = models.IntegerField(default=10)
-
+    room_count = models.IntegerField(default=1)
+    people_capacity = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return self.hotel_name

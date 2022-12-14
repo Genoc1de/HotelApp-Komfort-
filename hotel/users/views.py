@@ -5,7 +5,7 @@ from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-
+from home.models import Booking
 
 
 
@@ -33,6 +33,7 @@ def signup(request):
 
 @login_required
 def profile(request):
+    mybookings = Booking.objects.filter(user=request.user)
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
@@ -50,7 +51,8 @@ def profile(request):
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'mybookings': mybookings,
     }
 
     return render(request, 'registration/profile.html', context)

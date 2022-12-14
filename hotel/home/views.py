@@ -90,7 +90,6 @@ def aboutpage(request):
     return render(request, 'about_page.html',)
 
 def booking(request):
-
     return render(request, 'booking.html',)
 
 class booking(TemplateView):

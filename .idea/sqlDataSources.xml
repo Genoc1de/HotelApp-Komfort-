@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="e6d6e521-8108-4155-9a54-0a90832637dd" name="Amazon Aurora MySQL Mapping">
+      <data-sources db="505451c1-eab3-412f-8c32-24dbaadb0efd" ddl="a0a6b0ab-e012-46c2-a8f5-6f24d6384bf5" />
+    </mapping>
+    <mapping uuid="cc32a402-bbe6-4c90-80e9-fe9dd65e6318" name="db.sqlite3 Mapping">
+      <data-sources db="c5fc456d-3a2b-41c1-8826-cf70a203dcbd" ddl="28be778e-7f06-43fe-85f0-3782a94bbcea" />
+    </mapping>
+  </component>
+</project>

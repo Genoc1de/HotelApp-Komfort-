@@ -32,8 +32,12 @@
     </div>
     <div class="card-body">
         {{ article.body }}
+        {% for group in request.user.groups.all %}
+        {% if group.name == 'Admin' %}
         <a href="{% url 'article_edit' article.pk %}">Редактировать</a>
         <a href="{% url 'article_delete' article.pk %}">Удалить</a>
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="card-footer text-center text-muted">
         {% for comment in article.comments.all %}

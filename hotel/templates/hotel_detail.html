@@ -52,7 +52,7 @@
                 <div class="col-md-12">
                     <label for="mintopay">Заезд</label>
                     <p>
-                        <input type="date" name="checkin" id="checkin"  mindate="0" class="form-control" required>
+                        <input type="date" name="checkin" id="checkin"  class="form-control" required>
                     </p>
                 </div>
                 <div class="col-md-12">
@@ -64,8 +64,8 @@
             </div>
            {% if user.is_authenticated %}
             <div class="row form-group">
-                <div class="col-md-12">
-                    <input type="submit"   class="btn btn-info btn-block" value="Забронировать">
+                <div class="col-md-12" style="display:flex;justify-content: center;">
+                    <input type="submit"  style="margin-top:30px;  background-color:#002c3e; color:white;" class="btn mt-5 col-5" value="Забронировать">
                 </div>
             </div>
             {% else %}
@@ -78,7 +78,7 @@
     </div>
     {% else %}
 <div class="container" style="display:flex;justify-content: center;">
-    <a href="{% url 'login' %}" class="btn btn-danger mt-5 col-5">Войдите, чтобы забронировать!</a>
+    <a style="margin-top:30px;  background-color:#002c3e; color:white;" href="{% url 'login' %}" class="btn mt-5 col-5">Войдите, чтобы забронировать!</a>
 </div>
     {% endif %}
 </div>

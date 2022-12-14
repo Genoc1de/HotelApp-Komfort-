@@ -8,7 +8,6 @@ from .models import (Amenities, Hotel, Booking)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
-from . import models
 
 def check_booking(start_date  , end_date ,uid , room_count):
     qs = Booking.objects.filter(
@@ -100,7 +99,3 @@ class booking(TemplateView):
 
          return render(request, 'booking.html', {'bookings': bookings})
 
-class BookingDelete(DeleteView):
-    model = models.Booking
-    template_name = ''
-    success_url = reverse_lazy('home')

@@ -15,7 +15,6 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('users/', include('users.urls')),
     path('booking/', booking.as_view(), name ='booking'),
-    path('<int:pk>/delete/', BookingDelete.as_view(), name='bookingdelete'),
 
 ]
 

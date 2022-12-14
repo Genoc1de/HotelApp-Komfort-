@@ -14,8 +14,8 @@
     z-index: -1;
 }
 </style>
-<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-repeat: no-repeat;background-position: center center;">
-<li class="container" style="margin-top:5%">
+<body style="background-image: url(https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 1080px; background-size: cover;background-position: center center;">
+<div class="container" style="margin-top:5%">
 <div class="card">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
@@ -59,18 +59,19 @@
                         <button class="btn btn-outline-info" type="submit">Обновить</button>
                       </div>
                   </li>
-                  {% for item in mybookings %}
-                  <li class="list-group-item">
-                      <div class="form-group">
+                </ul>
+              {% for item in mybookings %}
+              <div class="card mt-4" style="color: black">
+                  <div class="card-header">
                       <p>Номер: {{ item.hotel }}</p>
+                  </div>
+                  <div class="card-body">
                       <p>Заезд: {{ item.start_date }}</p>
                       <p>Выезд: {{ item.end_date }}</p>
-                      </div>
-                  {% endfor %}
-                  </li>
-              </ul>
+                  </div>
+              </div>
+                {% endfor %}
           </fieldset>
-
       </form>
 </div>
 </body>

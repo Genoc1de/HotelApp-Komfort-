@@ -69,6 +69,9 @@
                       <p>Заезд: {{ item.start_date }}</p>
                       <p>Выезд: {{ item.end_date }}</p>
                   </div>
+                  <a  href="delete/{{item.uid}}">
+                <button style="margin-top:30px;"  class="btn btn-danger">Удалить</button>
+                </a>
               </div>
                 {% endfor %}
           </fieldset>

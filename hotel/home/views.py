@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from django.views.generic import TemplateView, DeleteView
+from django.views.generic import TemplateView, CreateView
 from phone_field import phone_number
-from .models import (Amenities, Hotel, Booking)
+from .models import (Amenities, Hotel, Booking, HotelImages)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
@@ -99,3 +99,27 @@ class booking(TemplateView):
 
          return render(request, 'booking.html', {'bookings': bookings})
 
+def delete_hotel(request, uid):
+    hotel_obj = Hotel.objects.get(uid = uid)
+    hotel_obj.delete()
+    return redirect('home')
+
+class newhotel(CreateView):
+    model = Hotel
+    fields = ['hotel_name','hotel_price','description','amenities','room_count','people_capacity']
+    template_name = 'newhotel.html'
+    success_url = reverse_lazy('home')
+    def form_valid(self,form):
+        # currentUser = self.request.user.owner
+        # hotel = Hotel.objects.filter(admin=currentUser.pk).all()
+        return super().form_valid(form)
+
+class galleryadd(CreateView):
+    model = HotelImages
+    fields = ['hotel','images',]
+    template_name = 'addphoto.html'
+    success_url = reverse_lazy('home')
+    def form_valid(self,form):
+        # currentUser = self.request.user.owner
+        # hotel = Hotel.objects.filter(admin=currentUser.pk).all()
+        return super().form_valid(form)

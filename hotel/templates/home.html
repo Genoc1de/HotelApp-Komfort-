@@ -102,6 +102,10 @@
         </div>
     </section>
     <div class="container-fluid col-9" style="display: flex;flex-wrap: wrap;">
+        <div class="">
+        <a class="btn btn-success" href="{% url 'new-hotel' %}">Создать новый номер</a>
+        <a class="btn btn-success" href="{% url 'addgallery' %}">Добавить фотографий для номеров</a>
+        </div>
          {% for hotels_obj in hotels_objs %}
         <div class="row search-card-result" style="align-items: center">
             <div class="col-md-3">
@@ -127,7 +131,9 @@
                         <a  href="/hotel-detail/{{hotels_obj.uid}}">
                             <button style="margin-top:30px;  background-color:#002c3e; color:white;" class="btn">Забронировать</button>
                         </a>
-                        <a></a>
+                        <a  href="/delete/hotel/{{hotels_obj.uid}}">
+                            <button style="margin-top:30px;"  class="btn btn-danger">Удалить</button>
+                        </a>
                     </div>
             </div>
         {% endfor %}

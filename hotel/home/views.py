@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView
 from phone_field import phone_number
 from .models import (Amenities, Hotel, Booking, HotelImages)
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
+from .forms import *
+from django.template import loader
+from django.http import HttpResponse, HttpResponseRedirect
 
 def check_booking(start_date  , end_date ,uid , room_count):
     qs = Booking.objects.filter(
@@ -123,3 +126,18 @@ class galleryadd(CreateView):
         # currentUser = self.request.user.owner
         # hotel = Hotel.objects.filter(admin=currentUser.pk).all()
         return super().form_valid(form)
+
+def edit_hotel(request, uid):
+    if request.method=="POST":
+        instance = Hotel.objects.get(uid = uid)
+        form =HotelForm(request.POST,request.FILES,instance=instance)
+        if form.is_valid():
+            hotel = form.save(commit = False)
+            hotel.save()
+        return redirect('home')
+    elif Hotel.objects.get(uid = uid):
+        hotel = Hotel.objects.get(uid = uid)
+        form = HotelForm(instance=hotel)
+    else:
+        form = HotelForm()
+    return render(request,'edithotel.html',{"form":form})

@@ -18,6 +18,7 @@ urlpatterns = [
     path('delete/hotel/<uid>/', delete_hotel, name='delHotel'),
     path('new/hotel/', newhotel.as_view(), name='new-hotel'),
     path('new/photohotel/', galleryadd.as_view(), name='addgallery'),
+    path('update/hotel/<uid>/', edit_hotel, name='edit_hotel'),
 
 ]
 

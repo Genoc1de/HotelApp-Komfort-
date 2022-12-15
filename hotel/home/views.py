@@ -91,16 +91,19 @@ def logout_request(request):
 def aboutpage(request):
     return render(request, 'about_page.html',)
 
-def booking(request):
-    return render(request, 'booking.html',)
 
 class booking(TemplateView):
 
     def get(self,request):
 
-         bookings = Booking.objects.all()          # worth looking into?
+         bookings = Booking.objects.all()
 
          return render(request, 'booking.html', {'bookings': bookings})
+
+def delete_bookings(request, uid):
+    bookings = Booking.objects.get(uid=uid)
+    bookings.delete()
+    return redirect('booking')
 
 def delete_hotel(request, uid):
     hotel_obj = Hotel.objects.get(uid = uid)

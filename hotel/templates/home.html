@@ -102,10 +102,14 @@
         </div>
     </section>
     <div class="container-fluid col-9" style="display: flex;flex-wrap: wrap;">
+        {% for group in request.user.groups.all %}
+        {% if group.name == 'Admin' %}
         <div class="mt-3">
         <a class="btn btn-success" href="{% url 'new-hotel' %}">Создать новый номер</a>
         <a class="btn btn-success" href="{% url 'addgallery' %}">Добавить фотографий для номеров</a>
         </div>
+        {% endif %}
+        {% endfor %}
          {% for hotels_obj in hotels_objs %}
         <div class="row search-card-result" style="align-items: center">
             <div class="col-md-3">
@@ -131,12 +135,16 @@
                         <a  href="/hotel-detail/{{hotels_obj.uid}}">
                             <button style="margin-top:30px;  background-color:#002c3e; color:white;" class="btn">Забронировать</button>
                         </a>
+                        {% for group in request.user.groups.all %}
+                        {% if group.name == 'Admin' %}
                         <a  href="update/hotel/{{hotels_obj.uid}}">
                             <button style="margin-top:30px;"  class="btn btn-success">Обновить</button>
                         </a>
                         <a  href="/delete/hotel/{{hotels_obj.uid}}">
                             <button style="margin-top:30px;"  class="btn btn-danger">Удалить</button>
                         </a>
+                        {% endif %}
+                        {% endfor %}
                     </div>
             </div>
         {% endfor %}

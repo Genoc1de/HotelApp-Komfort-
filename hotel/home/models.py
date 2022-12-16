@@ -22,20 +22,20 @@ class Amenities(BaseModel):
         return self.amenity_name
 
 class Hotel(BaseModel):
-    hotel_name = models.CharField(max_length=100)
-    hotel_price = models.IntegerField()
-    description = models.TextField(max_length=500)
-    amenities = models.ManyToManyField(Amenities)
-    room_count = models.IntegerField(default=1)
-    people_capacity = models.IntegerField(default=0)
+    hotel_name = models.CharField(max_length=100, verbose_name = "Название номера")
+    hotel_price = models.IntegerField(verbose_name = "Цена номера")
+    description = models.TextField(max_length=500, verbose_name = "Описание")
+    amenities = models.ManyToManyField(Amenities, verbose_name = "Удобства номера")
+    room_count = models.IntegerField(default=1, verbose_name = "Количество бронирований")
+    people_capacity = models.IntegerField(default=0, verbose_name = "Вместимость")
 
     def __str__(self) -> str:
         return self.hotel_name
 
 
 class HotelImages(BaseModel):
-    hotel= models.ForeignKey(Hotel ,related_name="images", on_delete=models.CASCADE)
-    images = models.ImageField(upload_to="hotels")
+    hotel= models.ForeignKey(Hotel ,related_name="images", on_delete=models.CASCADE, verbose_name = "Название номера")
+    images = models.ImageField(upload_to="hotels", verbose_name = "Изображение")
 
 
 

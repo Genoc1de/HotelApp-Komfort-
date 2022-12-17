@@ -3,8 +3,8 @@ from django.db import models
 from django.urls import reverse
 
 class Article(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
+    title = models.CharField(max_length=255, verbose_name = "Заголовок")
+    body = models.TextField(verbose_name = "Основное поле")
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -39,7 +39,21 @@
                     </div>
                 </li>
                   <li class="list-group-item">
-                      <div id="div_id_email" class="control-group"> <label for="id_email" class="control-label requiredField">Email<span class="asteriskField">*</span> </label>
+                      <div id="first_name" class="control-group"> <label for="id_email" class="control-label requiredField">Имя<span class="asteriskField">*</span> </label>
+                          <div class="controls">
+                              <input type="text" name="first_name" value="{{ user.first_name }}" class="textinput textInput" required="" id="id_first_name">
+                          </div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                      <div id="last_name" class="control-group"> <label for="last_name" class="control-label requiredField">Фамилия<span class="asteriskField">*</span> </label>
+                          <div class="controls">
+                              <input type="text" name="last_name" value="{{ user.last_name }}" class="emailinput" required="" id="id_last_name">
+                          </div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                      <div id="div_id_email" class="control-group"> <label for="id_email" class="control-label requiredField">Электроная почта<span class="asteriskField">*</span> </label>
                           <div class="controls">
                               <input type="email" name="email" value="{{ user.email }}" class="emailinput" required="" id="id_email">
                           </div>
@@ -47,7 +61,7 @@
                   </li>
                   <li class="list-group-item">
                       <div id="div_id_image" class="control-group">
-                          <label for="id_image" class="control-label requiredField">Image<span class="asteriskField">*</span></label>
+                          <label for="id_image" class="control-label requiredField">Аватар<span class="asteriskField">*</span></label>
                           <p>Изменить аватар</p>
                           <div class="controls">
                             <input type="file" name="image" accept="image/*" class="clearablefileinput" id="id_image">
@@ -69,9 +83,6 @@
                       <p>Заезд: {{ item.start_date }}</p>
                       <p>Выезд: {{ item.end_date }}</p>
                   </div>
-                  <a  href="delete/{{item.uid}}">
-                <button style="margin-top:30px;"  class="btn btn-danger">Удалить</button>
-                </a>
               </div>
                 {% endfor %}
           </fieldset>
